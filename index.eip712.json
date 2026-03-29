@@ -85,7 +85,9 @@
     "ReceiveWithAuthorization": [
       {
         "path": "registry/circle/eip712-ReceiveWithAuthorization.json",
-        "encodeTypeHashes": []
+        "encodeTypeHashes": [
+          "0xd099cc98ef71107a616c4f0f941f04c322d8e254fe26b3c6668db87aae413de8"
+        ]
       }
     ],
     "TransferWithAuthorization": [
@@ -1321,7 +1323,9 @@
     "ReceiveWithAuthorization": [
       {
         "path": "registry/circle/eip712-ReceiveWithAuthorization.json",
-        "encodeTypeHashes": []
+        "encodeTypeHashes": [
+          "0xd099cc98ef71107a616c4f0f941f04c322d8e254fe26b3c6668db87aae413de8"
+        ]
       }
     ],
     "TransferWithAuthorization": [
@@ -2393,7 +2397,9 @@
     "ReceiveWithAuthorization": [
       {
         "path": "registry/circle/eip712-ReceiveWithAuthorization.json",
-        "encodeTypeHashes": []
+        "encodeTypeHashes": [
+          "0xd099cc98ef71107a616c4f0f941f04c322d8e254fe26b3c6668db87aae413de8"
+        ]
       }
     ],
     "TransferWithAuthorization": [
@@ -3279,7 +3285,9 @@
     "ReceiveWithAuthorization": [
       {
         "path": "registry/circle/eip712-ReceiveWithAuthorization.json",
-        "encodeTypeHashes": []
+        "encodeTypeHashes": [
+          "0xd099cc98ef71107a616c4f0f941f04c322d8e254fe26b3c6668db87aae413de8"
+        ]
       }
     ],
     "TransferWithAuthorization": [
@@ -3657,7 +3665,9 @@
     "ReceiveWithAuthorization": [
       {
         "path": "registry/circle/eip712-ReceiveWithAuthorization.json",
-        "encodeTypeHashes": []
+        "encodeTypeHashes": [
+          "0xd099cc98ef71107a616c4f0f941f04c322d8e254fe26b3c6668db87aae413de8"
+        ]
       }
     ],
     "TransferWithAuthorization": [
@@ -4749,7 +4759,9 @@
     "ReceiveWithAuthorization": [
       {
         "path": "registry/circle/eip712-ReceiveWithAuthorization.json",
-        "encodeTypeHashes": []
+        "encodeTypeHashes": [
+          "0xd099cc98ef71107a616c4f0f941f04c322d8e254fe26b3c6668db87aae413de8"
+        ]
       }
     ],
     "TransferWithAuthorization": [

@@ -83,16 +83,19 @@ class GenerateIndexV2Tests(unittest.TestCase):
             self.assertTrue(entry["encodeTypeHashes"], entry)
             self.assertEqual(len(entry["encodeTypeHashes"]), len(set(entry["encodeTypeHashes"])))
 
-    def test_legacy_circle_descriptor_is_indexed_without_hash(self):
+    def test_circle_receive_with_authorization_is_indexed_with_hash(self):
         bucket = self.eip712_index.get("eip155:1:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", {})
         entries = bucket.get("ReceiveWithAuthorization", [])
-        self.assertIn(
-            {
-                "path": "registry/circle/eip712-ReceiveWithAuthorization.json",
-                "encodeTypeHashes": [],
-            },
-            entries,
-        )
+        self.assertEqual(len(entries), 1)
+        self.assertEqual(entries[0]["path"], "registry/circle/eip712-ReceiveWithAuthorization.json")
+        self.assertTrue(entries[0]["encodeTypeHashes"], entries[0])
+
+    def test_generator_rejects_non_canonical_eip712_short_keys(self):
+        with self.assertRaisesRegex(ValueError, "non-canonical EIP-712 format key"):
+            module.extract_eip712_format_hashes(
+                {"display": {"formats": {"ReceiveWithAuthorization": {}}}},
+                "registry/circle/eip712-ReceiveWithAuthorization.json",
+            )
 
 
 if __name__ == "__main__":

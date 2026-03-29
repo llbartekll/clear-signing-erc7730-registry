@@ -174,7 +174,6 @@ def keccak256_hex(value: str) -> str:
 
 def extract_eip712_format_hashes(
     descriptor: dict[str, Any],
-    warnings: list[str],
     rel_path: str,
 ) -> dict[str, list[str]]:
     formats = descriptor.get("display", {}).get("formats", {})
@@ -182,9 +181,9 @@ def extract_eip712_format_hashes(
 
     for key in formats:
         if "(" not in key:
-            grouped.setdefault(key, [])
-            warnings.append(f"legacy eip712 format key indexed without hash: {rel_path} -> {key}")
-            continue
+            raise ValueError(
+                f"non-canonical EIP-712 format key in {rel_path}: {key} (expected encodeType string)"
+            )
         primary_type = key.split("(")[0]
         grouped.setdefault(primary_type, []).append(keccak256_hex(key))
 
@@ -237,11 +236,7 @@ def build_indexes() -> tuple[dict[str, Any], dict[str, str], dict[str, dict[str,
                 if not deployments:
                     continue
 
-                format_hashes = extract_eip712_format_hashes(descriptor, warnings, rel_path)
-                if not format_hashes:
-                    if extract_primary_types(raw_descriptor):
-                        warnings.append(f"no canonical EIP-712 format hashes found for {rel_path}")
-                    continue
+                format_hashes = extract_eip712_format_hashes(descriptor, rel_path)
 
                 for dep in deployments:
                     key = make_key(dep["chainId"], dep["address"])
