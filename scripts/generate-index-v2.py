@@ -12,11 +12,14 @@ Output format:
 import copy
 import json
 import os
+import subprocess
 import sys
 from typing import Any
 
 REGISTRY_ROOT = os.path.join(os.path.dirname(__file__), "..")
 INDEX_PATH = os.path.join(REGISTRY_ROOT, "index.json")
+INDEX_CALLDATA_PATH = os.path.join(REGISTRY_ROOT, "index.calldata.json")
+INDEX_EIP712_PATH = os.path.join(REGISTRY_ROOT, "index.eip712.json")
 REGISTRY_DIR = os.path.join(REGISTRY_ROOT, "registry")
 
 MAX_INCLUDES_DEPTH = 3
@@ -159,9 +162,39 @@ def extract_primary_types(descriptor: dict[str, Any]) -> set[str]:
     return primary_types
 
 
-def build_index() -> tuple[dict[str, Any], list[str]]:
+def keccak256_hex(value: str) -> str:
+    result = subprocess.run(
+        ["openssl", "dgst", "-KECCAK-256", "-binary"],
+        input=value.encode(),
+        capture_output=True,
+        check=True,
+    )
+    return "0x" + result.stdout.hex()
+
+
+def extract_eip712_format_hashes(
+    descriptor: dict[str, Any],
+    warnings: list[str],
+    rel_path: str,
+) -> dict[str, list[str]]:
+    formats = descriptor.get("display", {}).get("formats", {})
+    grouped: dict[str, list[str]] = {}
+
+    for key in formats:
+        if "(" not in key:
+            grouped.setdefault(key, [])
+            warnings.append(f"legacy eip712 format key indexed without hash: {rel_path} -> {key}")
+            continue
+        primary_type = key.split("(")[0]
+        grouped.setdefault(primary_type, []).append(keccak256_hex(key))
+
+    return {pt: sorted(set(hashes)) for pt, hashes in grouped.items()}
+
+
+def build_indexes() -> tuple[dict[str, Any], dict[str, str], dict[str, dict[str, list[dict[str, Any]]]], list[str]]:
     calldata: dict[str, str] = {}
-    eip712: dict[str, list[dict[str, str]]] = {}
+    legacy_eip712: dict[str, list[dict[str, str]]] = {}
+    eip712: dict[str, dict[str, list[dict[str, Any]]]] = {}
     warnings: list[str] = []
     cache: dict[str, dict[str, Any]] = {}
 
@@ -204,38 +237,80 @@ def build_index() -> tuple[dict[str, Any], list[str]]:
                 if not deployments:
                     continue
 
-                primary_types = extract_primary_types(descriptor)
-                if not primary_types:
+                format_hashes = extract_eip712_format_hashes(descriptor, warnings, rel_path)
+                if not format_hashes:
                     if extract_primary_types(raw_descriptor):
-                        warnings.append(f"no primaryTypes found for {rel_path}")
+                        warnings.append(f"no canonical EIP-712 format hashes found for {rel_path}")
                     continue
 
                 for dep in deployments:
                     key = make_key(dep["chainId"], dep["address"])
-                    entries = eip712.setdefault(key, [])
-                    for pt in sorted(primary_types):
-                        entry = {"primaryType": pt, "path": rel_path}
-                        if entry not in entries:
-                            entries.append(entry)
+                    legacy_entries = legacy_eip712.setdefault(key, [])
+                    split_entries = eip712.setdefault(key, {})
+                    for pt, hashes in sorted(format_hashes.items()):
+                        legacy_entry = {"primaryType": pt, "path": rel_path}
+                        if legacy_entry not in legacy_entries:
+                            legacy_entries.append(legacy_entry)
 
+                        bucket = split_entries.setdefault(pt, [])
+                        existing = next((entry for entry in bucket if entry["path"] == rel_path), None)
+                        if existing is None:
+                            bucket.append(
+                                {
+                                    "path": rel_path,
+                                    "encodeTypeHashes": list(hashes),
+                                }
+                            )
+                        else:
+                            existing["encodeTypeHashes"] = sorted(
+                                set(existing["encodeTypeHashes"]) | set(hashes)
+                            )
 
-    index = {
+    for key in eip712:
+        for primary_type in eip712[key]:
+            eip712[key][primary_type] = sorted(
+                eip712[key][primary_type],
+                key=lambda entry: entry["path"],
+            )
+
+    legacy_index = {
         "calldata": dict(sorted(calldata.items())),
-        "eip712": dict(sorted(eip712.items())),
+        "eip712": dict(sorted(legacy_eip712.items())),
     }
-    return index, warnings
+    return legacy_index, dict(sorted(calldata.items())), dict(sorted(eip712.items())), warnings
+
+
+def build_index() -> tuple[dict[str, Any], list[str]]:
+    legacy_index, _, _, warnings = build_indexes()
+    return legacy_index, warnings
 
 
 def main():
-    index, warnings = build_index()
+    legacy_index, calldata_index, eip712_index, warnings = build_indexes()
 
     with open(INDEX_PATH, "w") as f:
-        json.dump(index, f, indent=2)
+        json.dump(legacy_index, f, indent=2)
         f.write("\n")
 
-    eip712_entries = sum(len(v) for v in index["eip712"].values())
-    print(f"calldata: {len(index['calldata'])} keys")
-    print(f"eip712:   {len(index['eip712'])} keys ({eip712_entries} entries)")
+    with open(INDEX_CALLDATA_PATH, "w") as f:
+        json.dump(calldata_index, f, indent=2)
+        f.write("\n")
+
+    with open(INDEX_EIP712_PATH, "w") as f:
+        json.dump(eip712_index, f, indent=2)
+        f.write("\n")
+
+    legacy_eip712_entries = sum(len(v) for v in legacy_index["eip712"].values())
+    split_eip712_entries = sum(
+        len(entries)
+        for primary_types in eip712_index.values()
+        for entries in primary_types.values()
+    )
+    print(f"calldata: {len(calldata_index)} keys")
+    print(
+        f"eip712:   {len(eip712_index)} keys "
+        f"({legacy_eip712_entries} legacy entries, {split_eip712_entries} normalized candidates)"
+    )
 
     if warnings:
         print(f"\nWarnings ({len(warnings)}):")
