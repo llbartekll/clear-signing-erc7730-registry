@@ -614,6 +614,32 @@
         "path": "registry/1inch/eip712-AggregationRouterV6.json"
       }
     ],
+    "eip155:10:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      }
+    ],
     "eip155:10:0x0000000000bbf5c5fd284e657f01bd000933c96d": [
       {
         "primaryType": "Order",
@@ -890,6 +916,32 @@
         "path": "registry/safe/eip712-SafeL2-1.3.0.json"
       }
     ],
+    "eip155:11155111:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      }
+    ],
     "eip155:11155111:0x29fcb43b46531bca003ddc8fcb67ffe91900c762": [
       {
         "primaryType": "AddAddressBookEntry",
@@ -1136,6 +1188,32 @@
         "path": "registry/safe/eip712-Safe-Multisig.json"
       }
     ],
+    "eip155:11155420:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      }
+    ],
     "eip155:1313161554:0x111111125421ca6dc452d289314280a0f8842a65": [
       {
         "primaryType": "Order",
@@ -1146,6 +1224,32 @@
       {
         "primaryType": "Permit",
         "path": "registry/permit/eip712-permit-polygon-pol.json"
+      }
+    ],
+    "eip155:137:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
       }
     ],
     "eip155:137:0x111111125421ca6dc452d289314280a0f8842a65": [
@@ -1544,6 +1648,32 @@
       {
         "primaryType": "SafeTx",
         "path": "registry/safe/eip712-SafeL2-1.3.0.json"
+      }
+    ],
+    "eip155:1:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
       }
     ],
     "eip155:1:0x0000000000bbf5c5fd284e657f01bd000933c96d": [
@@ -2022,6 +2152,58 @@
         "path": "registry/1inch/eip712-AggregationRouterV6.json"
       }
     ],
+    "eip155:421614:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      }
+    ],
+    "eip155:42161:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      }
+    ],
     "eip155:42161:0x0927fd43a7a87e3e8b81df2c44b03c4756849f6d": [
       {
         "primaryType": "Order",
@@ -2320,6 +2502,58 @@
         "path": "registry/permit/eip712-permit-arbitrum-bridged-usdc.json"
       }
     ],
+    "eip155:42220:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      }
+    ],
+    "eip155:43114:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      }
+    ],
     "eip155:43114:0x111111125421ca6dc452d289314280a0f8842a65": [
       {
         "primaryType": "Order",
@@ -2386,6 +2620,32 @@
       {
         "primaryType": "Permit",
         "path": "registry/permit/eip712-permit-avalanche_c_chain-usdc.json"
+      }
+    ],
+    "eip155:56:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
       }
     ],
     "eip155:56:0x0000000000bbf5c5fd284e657f01bd000933c96d": [
@@ -2680,10 +2940,114 @@
         "path": "registry/permit/eip712-permit-linea-lusd.json"
       }
     ],
+    "eip155:80001:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      }
+    ],
+    "eip155:81457:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      }
+    ],
     "eip155:8217:0x111111125421ca6dc452d289314280a0f8842a65": [
       {
         "primaryType": "Order",
         "path": "registry/1inch/eip712-AggregationRouterV6.json"
+      }
+    ],
+    "eip155:84532:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      }
+    ],
+    "eip155:8453:0x000000000022d473030f116ddee9f6b43ac78ba3": [
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-ExclusiveDutchOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-UniswapX-LimitOrder.json"
+      },
+      {
+        "primaryType": "PermitWitnessTransferFrom",
+        "path": "registry/uniswap/eip712-uniswap-V2DutchOrder.json"
+      },
+      {
+        "primaryType": "PermitBatch",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
+      },
+      {
+        "primaryType": "PermitSingle",
+        "path": "registry/uniswap/eip712-uniswap-permit2.json"
       }
     ],
     "eip155:8453:0x0000000000bbf5c5fd284e657f01bd000933c96d": [
